@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CalculadoraMVVM</string>
+    <string name="first_number">Digite el primer numero</string>
+    <string name="second_number">Digite el segundo numero</string>
+    <string name="add">+</string>
+    <string name="substrac">-</string>
+    <string name="multiply">*</string>
+    <string name="divide">/</string>
+    <string name="result">Resultado</string>
+</resources>

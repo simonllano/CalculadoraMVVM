@@ -21,22 +21,26 @@ class MainActivity : AppCompatActivity() {
         val view = mainBinding.root
         setContentView(view)
 
-
-
-
         mainBinding.addButton.setOnClickListener {
-            mainViewModel.validateNumbers(mainBinding.firstNumberEditText.text.toString(),mainBinding.secondNumberEditText.text.toString()) //llamando metodo de ViewModel
+            mainViewModel.validateNumbers(mainBinding.firstNumberEditText.text.toString(),mainBinding.secondNumberEditText.text.toString(),"0") //llamando metodo de ViewModel
 
         }
 
         mainBinding.substracButton.setOnClickListener {
-            mainViewModel.validateNumbers()
+            mainViewModel.validateNumbers(mainBinding.firstNumberEditText.text.toString(),mainBinding.secondNumberEditText.text.toString(),"1")
         }
 
-        val sumaObserver = Observer<Double> {suma->  //Se crea el objeto observer
-            mainBinding.resultTextView.setText(suma.toString())
+        mainBinding.multiplyButton.setOnClickListener {
+            mainViewModel.validateNumbers(mainBinding.firstNumberEditText.text.toString(),mainBinding.secondNumberEditText.text.toString(),"2")
         }
-        mainViewModel.suma.observe(this, sumaObserver) //Se conecta el view model con ...
+
+        mainBinding.divideButton.setOnClickListener {
+            mainViewModel.validateNumbers(mainBinding.firstNumberEditText.text.toString(),mainBinding.secondNumberEditText.text.toString(),"3")
+        }
+        val resultadoObserver = Observer<Double> {total->  //Se crea el objeto observer
+            mainBinding.resultTextView.setText(total.toString())
+        }
+        mainViewModel.total.observe(this, resultadoObserver) //Se conecta el view model con ...
 
         val errorMsgObserver = Observer<String> {errorMsg ->
             Snackbar.make(view, errorMsg, Snackbar.LENGTH_INDEFINITE)

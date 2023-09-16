@@ -6,4 +6,11 @@
     </style>
 
     <style name="Theme.CalculadoraMVVM" parent="Base.Theme.CalculadoraMVVM" />
+
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground" >@drawable/splashscreen
+        </item>
+    </style>
+
+
 </resources>
